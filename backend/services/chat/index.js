@@ -1,22 +1,11 @@
 import express from "express";
 import dbConnect from "./config/db.js";
 import dotenv from "dotenv";
-
-import cookieParser from "cookie-parser";
-import router from "./routes/auth.routes.js";
-
 dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 
-app.use(cookieParser());
-app.use((req, res, next) => {
-  console.log("Auth received:", req.method, req.originalUrl);
-  next();
-});
-app.use("/", router);
 app.get("/", (req, res) => {
   res.status(200).json({ message: "hello from chat" });
 });
