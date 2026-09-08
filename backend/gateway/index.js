@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/api/auth", proxy(process.env.AUTH));
-app.use("/api/auth", proxyWithHeaders(process.env.CHAT));
+app.use("/api/chat", protect, proxyWithHeaders(process.env.CHAT));
 
 app.use("/api/me", protect, userController);
 
