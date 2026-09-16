@@ -5,6 +5,7 @@ import getCurrentUser from "./features/getCurrentUser";
 import { setUserData } from "./redux/userSlice";
 
 import Home from "./Home";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,12 @@ function App() {
     getUser();
   }, [dispatch]);
 
-  return <Home />;
+  return (
+    <div>
+      <Home />
+      <Sidebar />
+    </div>
+  );
 }
 
 export default App;
